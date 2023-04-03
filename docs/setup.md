@@ -25,16 +25,17 @@ If you are new to git, we recommend using [GitHub Desktop](https://desktop.githu
    Here is how to clone a repository with [git](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
    ) and [GitHub Desktop](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/cloning-and-forking-repositories-from-github-desktop).
 
-4. Install [pnpm](https://pnpm.io/installation)
+4. Install [node](https://nodejs.org/en)
+5. Install [pnpm](https://pnpm.io/installation)
 
-5. Install this project's dependencies
+6. Install this project's dependencies
    In the root directory for this project, run the following command:
 
 ```bash
 pnpm install
 ```
 
-6. Run the project
+7. Run the project
    In the root directory for this project, run the following command:
 
 ```bash
