@@ -29,6 +29,7 @@ If you are new to git, we recommend using [GitHub Desktop](https://desktop.githu
 5. Install [pnpm](https://pnpm.io/installation)
 
 FOR BEGINNERS: If you have trouble, run
+
 ```
 sudo npm install -g pnpm
 ```
