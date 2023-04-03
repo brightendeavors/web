@@ -27,6 +27,7 @@ If you are new to git, we recommend using [GitHub Desktop](https://desktop.githu
 
 4. Install [node](https://nodejs.org/en)
 5. Install [pnpm](https://pnpm.io/installation)
+
 FOR BEGINNERS: If you have trouble, run
 ```
 sudo npm install -g pnpm
