@@ -12,9 +12,10 @@
   let showMenu = false;
 
   let tabs = [
-    { name: 'All', path: '/search' },
-    { name: 'Featured', path: '/search/featured' },
-    { name: 'Apparel', path: '/search/clothes' }
+    { name: 'shop', path: '/search' },
+    { name: 'mission', path: '/search/featured' },
+    { name: 'donate', path: '/search/clothes' },
+    { name: 'wholesale', path: '/search/wholesale'}
   ];
   function openCart() {
     showMenu = false;
@@ -22,51 +23,56 @@
   }
 </script>
 
-<nav class="flex items-center border-b border-zinc-700 p-4 lg:px-6">
-  <div class="flex w-1/3 items-center">
+<div  class="bg-[#224b59] w-full flex py-2 px-12">
+  <div class="uppercase ml-auto text-white text-small">
+    free shipping on orders of $75+ | 
+
+  </div>
+
+</div>
+
+<nav class="flex justify-between border-b border-zinc-700 p-4 lg:px-6 bg-white">
     <div class="mr-4" class:active={currentRoute === '/'}>
       <a href="/" data-sveltekit-prefetch class="">
         <picture>
-          <source srcset="/svelte_logo.png" type="image/png" />
+          <source srcset="/logo.png" type="image/png" />
           <img
-            alt="Svelte Logo"
-            class="h-[38] w-[32]"
+            alt="Bright Endeavors Logo"
+            class=" w-64"
             decoding="async"
             height={38}
             loading="eager"
-            src="/svelte_logo.png"
+            src="/logo.png"
             width={32}
           />
         </picture>
       </a>
     </div>
-    <div class="hidden lg:flex">
+    <div class="hidden lg:flex items-center space-x-4">
       {#each tabs as tab, i (tab.name)}
         <div class:active={currentRoute === tab.path}>
           <a
             data-sveltekit-prefetch
             href={tab.path}
-            class={`hover:opacity-100 px-2 py-1 text-white rounded-lg ${
+            class={`uppercase text-xl hover:text-[#991f36] px-2 py-1 text-[#224b59] transition-colors rounded-lg ${
               currentRoute === tab.path ? 'opacity-100' : 'opacity-75'
             }`}>{tab.name}</a
           >
         </div>
       {/each}
-    </div>
+      <div class="ml-auto flex items-center">
+        <button on:click={openCart} class="relative my-2 mx-4">
+          <Icons strokeColor="#244b59" type="cart" />
+          <div
+            data-test="cart-quantity"
+            class="absolute bottom-0 left-0 -ml-3 -mb-3 flex h-5 w-5 items-center justify-center rounded-full border border-black bg-white text-xs text-black"
+          >
+            {$cartQuantity}
+          </div>
+        </button>
   </div>
-  <div class="hidden w-1/3 lg:block">
-    <SearchBar />
-  </div>
-  <div class="ml-auto flex items-center">
-    <button on:click={openCart} class="relative my-2 mx-4">
-      <Icons strokeColor="#fff" type="cart" />
-      <div
-        data-test="cart-quantity"
-        class="absolute bottom-0 left-0 -ml-3 -mb-3 flex h-5 w-5 items-center justify-center rounded-full border border-black bg-white text-xs text-black"
-      >
-        {$cartQuantity}
-      </div>
-    </button>
+  
+  
     <button
       on:click={() => {
         showMenu = true;
@@ -82,9 +88,9 @@
       on:click|self={() => {
         showMenu = false;
       }}
-      class="absolute inset-0 z-50 flex max-h-screen w-full justify-end overflow-hidden bg-black/50 lg:hidden"
+      class="absolute inset-0 z-50 flex max-h-screen w-full justify-end overflow-hidden  lg:hidden"
     >
-      <div class="z-30 w-full bg-black p-6 md:w-1/2 lg:w-1/3">
+      <div class="z-30 w-full p-6 md:w-1/2 lg:w-1/3">
         <div class="flex w-full items-center justify-between">
           <button
             aria-label="Close menu"
@@ -114,7 +120,7 @@
               <a
                 data-sveltekit-prefetch
                 href={tab.path}
-                class={`hover:opacity-100 px-2 py-1 text-white font-bold text-xl rounded-lg ${
+                class={`hover:opacity-100 px-2 py-1 text-black font-bold text-xl rounded-lg ${
                   currentRoute === tab.path ? 'opacity-100' : 'opacity-75'
                 }`}>{tab.name}</a
               >
