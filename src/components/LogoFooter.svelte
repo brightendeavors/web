@@ -1,9 +1,13 @@
+<script>
+    import logo from "./footer_logo.png";
+</script>
+
 <div id="footer" class="bg-[#114351] p-20">
     <div class="text-center w-80">
       <div class="flex justify-center p-5">
-        <img class="w-52" src="/footer_logo.png" alt="Bright Endeavor Logo"/>
+        <img class="w-60 h-50 pb-14" src="{logo}" alt="Bright Endeavor Logo"/>
       </div>
-      <p class=" font-serif tracking-wider">STAY IN TOUCH</p>
+      <p class="font-serif tracking-wider">STAY IN TOUCH</p>
       <div class="flex items-center justify-center m-4">
         <input class="bg-[#104351] border-solid border border-white p-2" type="text" placeholder="email address">
       <button id="button" class="bg-white p-2 text-[#104351] hover:bg-[#104351] hover:text-white w-48">SUBMIT</button>
