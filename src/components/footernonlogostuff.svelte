@@ -25,35 +25,35 @@
             <LogoFooter/>
         </div>
 
-        <div class="links text-center pb-10">
+        <div class="links text-center pb-20">
             <dl>
-                <dt class="pb-2 tracking-[.20em]"><b>SHOP</b></dt>
+                <dt class="pb-2 tracking-[.20em] text-sm"><b>SHOP</b></dt>
                 {#each shop as link}
-                <dd><a class="hover:text-[#f0a424] font-serif text-sm" href="https://www.brightendeavors.com/{link.link}/">{link.name}</a></dd>
+                <dd class="mb-px"><a class="hover:text-[#f0a424] font-serif text-xs" href="https://www.brightendeavors.com/{link.link}/">{link.name}</a></dd>
+                {/each}
+            </dl>
+        </div>
+        <div class="links text-center pb-28">
+            <dl>
+                <dt class="pb-2 tracking-[.20em] text-sm"><b>PARTNERS</b></dt>
+                {#each partners as link}
+                <dd class="mb-px"><a class="hover:text-[#f0a424] font-serif text-xs" href="https://www.brightendeavors.com/{link.link}/">{link.name}</a></dd>
                 {/each}
             </dl>
         </div>
         <div class="links text-center pb-16">
             <dl>
-                <dt class="pb-2 tracking-[.20em]"><b>PARTNERS</b></dt>
-                {#each partners as link}
-                <dd><a class="hover:text-[#f0a424] font-serif text-sm" href="https://www.brightendeavors.com/{link.link}/">{link.name}</a></dd>
-                {/each}
-            </dl>
-        </div>
-        <div class="links text-center pb-6">
-            <dl>
-                <dt class="pb-2 tracking-[.20em]"><b>MISSION</b></dt>
+                <dt class="pb-2 tracking-[.20em] text-sm"><b>MISSION</b></dt>
                 {#each mission as link}
-                <dd><a class="hover:text-[#f0a424] font-serif text-sm" href="https://www.brightendeavors.com/{link.link}/">{link.name}</a></dd>
+                <dd class="mb-px"><a class="hover:text-[#f0a424] font-serif text-xs" href="https://www.brightendeavors.com/{link.link}/">{link.name}</a></dd>
                 {/each}
             </dl>
         </div>
-        <div class="links text-center pb-6">
+        <div class="links text-center pb-16">
             <dl>
-                <dt class="pb-2 tracking-[.20em]"><b>FAQS</b></dt>
+                <dt class="pb-2 tracking-[.20em] text-sm"><b>FAQS</b></dt>
                 {#each faq as link}
-                <dd><a class="hover:text-[#f0a424] font-serif text-sm" href="https://www.brightendeavors.com/{link.link}/">{link.name}</a></dd>
+                <dd class="mb-px"><a class="hover:text-[#f0a424] font-serif text-xs" href="https://www.brightendeavors.com/{link.link}/">{link.name}</a></dd>
                 {/each}
             </dl>
         </div>
@@ -62,7 +62,7 @@
 </footer>
 
 <section id="subfoot">
-    <div class="flex w-full flex-col items-center justify-center bg-[#F0A424] text-[#104351] py-4 px-4">
+    <div class="flex w-full flex-col items-center justify-center bg-[#F0A424] text-[#104351] py-3 px-4">
     <div>
         Copyright © 2023 Bright Endeavors
     </div>
