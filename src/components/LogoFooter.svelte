@@ -2,7 +2,11 @@
     import logo from "./footer_logo.png";
 </script>
 
+<<<<<<< HEAD
 <div id="footer" class="bg-[#114351] pt-14 p-20">
+=======
+<div id="footer" class="bg-[#114351] p-20 pt-4">
+>>>>>>> 176621ff19c5c2ba3cbaeb86c2d4beb9e94d1d10
     <div class="text-center w-80">
       <div class="flex justify-center p-2">
         <img class="w-60 h-50 pb-16 mt-5 ml-10" src="{logo}" alt="Bright Endeavor Logo"/>
