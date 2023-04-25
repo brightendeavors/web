@@ -18,7 +18,7 @@
 </script>
 
 
-<footer id="foot" class="bg-[#104351] py-6">
+<footer id="foot" class="bg-[#104351] pt-2">
     <div class="row justify-center">
     <div class="grid grid-cols-6 items-center">
         <div class="col-span-2">
