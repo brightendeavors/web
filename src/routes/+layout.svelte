@@ -108,7 +108,9 @@
       bind:loading
     />
   {/if}
-  <Header on:openCart={openCart} />
+  <div class="absolute w-full">
+    <Header on:openCart={openCart} />
+  </div>  
   <div class="min-h-screen overflow-scroll">
     <slot />
     <Footer />

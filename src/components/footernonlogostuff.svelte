@@ -19,13 +19,13 @@
 
 
 <footer id="foot" class="bg-[#104351] pt-2">
-    <div class="row justify-center">
-    <div class="grid grid-cols-6 items-center">
-        <div class="col-span-2">
+    <div class="row justify-center flex flex-col">
+    <div class="grid lg:grid-cols-6 md:grid-cols-2 sm:grid-cols-2 items-center flex-wrap">
+        <div class="col-span-2 gap-1 place-self-center columns-sm">
             <LogoFooter/>
         </div>
 
-        <div class="links text-center pb-20">
+        <div class="links text-center pb-20 md:gap-2">
             <dl>
                 <dt class="pb-2 tracking-[.20em] text-sm"><b>SHOP</b></dt>
                 {#each shop as link}
@@ -33,7 +33,7 @@
                 {/each}
             </dl>
         </div>
-        <div class="links text-center pb-28">
+        <div class="links text-center pb-28 md:gap-2">
             <dl>
                 <dt class="pb-2 tracking-[.20em] text-sm"><b>PARTNERS</b></dt>
                 {#each partners as link}
@@ -41,7 +41,7 @@
                 {/each}
             </dl>
         </div>
-        <div class="links text-center pb-16">
+        <div class="links text-center pb-16 md:gap-2">
             <dl>
                 <dt class="pb-2 tracking-[.20em] text-sm"><b>MISSION</b></dt>
                 {#each mission as link}
@@ -49,7 +49,7 @@
                 {/each}
             </dl>
         </div>
-        <div class="links text-center pb-16">
+        <div class="links text-center pb-16 md:gap-2">
             <dl>
                 <dt class="pb-2 tracking-[.20em] text-sm"><b>FAQS</b></dt>
                 {#each faq as link}
@@ -67,4 +67,4 @@
         Copyright © 2023 Bright Endeavors
     </div>
     </div>
-</section> 
+</section>
