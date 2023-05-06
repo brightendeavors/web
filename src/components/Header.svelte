@@ -7,6 +7,8 @@
 
   import { slide } from 'svelte/transition'
 
+  import HiddenHeader from './hidden_header.svelte';
+
   const dispatch = createEventDispatcher();
 
   $: currentRoute = $page.url.pathname;
@@ -44,121 +46,126 @@
     free shipping on orders of $75+ | 
 
   </div>
-
 </div>
 
-<nav class="flex justify-between border-b border-zinc-700 p-4 lg:px-6 bg-white">
-    <div class="mr-4" class:active={currentRoute === '/'}>
-      <a href="/" data-sveltekit-prefetch class="">
-        <picture>
-          <source srcset="/logo.png" type="image/png" />
-          <img
-            alt="Bright Endeavors Logo"
-            class=" w-64"
-            decoding="async"
-            height={38}
-            loading="eager"
-            src="/logo.png"
-            width={32}
-          />
-        </picture>
-      </a>
+<div>
+    <div class="h-fit lg:hidden float-right bg-transparent relative">
+        <HiddenHeader/>
     </div>
-    <div class="hidden lg:flex items-center space-x-4">
-      {#each tabs as tab}
-        {#if tab.name == "shop"}
-            <nav>
-                <button class="text-[#224b59] opacity-80 text-xl" on:click={clickHandler}>SHOP</button>
-                {#if isExpanded}
-                    <div class="bg-white overflow-auto absolute py-4 z-10 text-sm">
-                        <ul class="text-[#224b59] opacity-60 font-serif tracking-wider" transition:slide>
-                            <li class="bg-black opacity-50 h-[0.99px] mb-2"></li>
-                            {#each sublinks as sub}
-                            <li class="px-6 py-2"><a href="www.google.com">{sub.name}</a></li>
-                            {/each}
-                        </ul>
-                    </div>
-                {/if}
-            </nav> 
-        {:else}
-        <div class:active={currentRoute === tab.path}>
-            <a
-            data-sveltekit-prefetch
-            href={tab.path}
-            class={`uppercase text-xl hover:text-[#991f36] px-2 py-1 text-[#224b59] transition-colors rounded-lg ${
-            currentRoute === tab.path ? 'opacity-100' : 'opacity-75'
-            }`}>{tab.name}</a>
+    <nav class="flex justify-between border-b border-zinc-700 p-4 lg:px-6 bg-white min-md:hidden min-sm:hidden">
+        <div class="mr-4" class:active={currentRoute === '/'}>
+        <a href="/" data-sveltekit-prefetch class="">
+            <picture>
+            <source srcset="/logo.png" type="image/png" />
+            <img
+                alt="Bright Endeavors Logo"
+                class=" w-64"
+                decoding="async"
+                height={38}
+                loading="eager"
+                src="/logo.png"
+                width={32}
+            />
+            </picture>
+        </a>
         </div>
-        {/if}
-      {/each}
-      <div class="ml-auto flex items-center">
-        <button on:click={openCart} class="relative my-2 mx-4">
-          <Icons strokeColor="#244b59" type="cart" />
-          <div
-            data-test="cart-quantity"
-            class="absolute bottom-0 left-0 -ml-3 -mb-3 flex h-5 w-5 items-center justify-center rounded-full border border-black bg-white text-xs text-black"
-          >
-            {$cartQuantity}
-          </div>
-        </button>
-  </div>
-  
-  
+        <div class="hidden lg:flex items-center space-x-4">
+        {#each tabs as tab}
+            {#if tab.name == "shop"}
+                <nav>
+                    <button class="text-[#224b59] opacity-80 text-xl" on:click={clickHandler}>SHOP</button>
+                    {#if isExpanded}
+                        <div class="bg-white overflow-auto absolute py-4 z-10 text-sm">
+                            <ul class="text-[#224b59] opacity-60 font-serif tracking-wider" transition:slide>
+                                <li class="bg-black opacity-50 h-[0.99px] mb-2"></li>
+                                {#each sublinks as sub}
+                                <li class="px-6 py-2 hover:text-[#991f36]"><a href="/{tab.path}">{sub.name}</a></li>
+                                {/each}
+                            </ul>
+                        </div>
+                    {/if}
+                </nav> 
+            {:else}
+            <div class:active={currentRoute === tab.path}>
+                <a
+                data-sveltekit-prefetch
+                href={tab.path}
+                class={`uppercase text-xl hover:text-[#991f36] px-2 py-1 text-[#224b59] transition-colors rounded-lg ${
+                currentRoute === tab.path ? 'opacity-100' : 'opacity-75'
+                }`}>{tab.name}</a>
+            </div>
+            {/if}
+        {/each}
+        <div class="ml-auto flex items-center">
+            <button on:click={openCart} class="relative my-2 mx-4">
+            <Icons strokeColor="#244b59" type="cart" />
+            <div
+                data-test="cart-quantity"
+                class="absolute bottom-0 left-0 -ml-3 -mb-3 flex h-5 w-5 items-center justify-center rounded-full border border-black bg-white text-xs text-black"
+            >
+                {$cartQuantity}
+            </div>
+            </button>
+        
+    </div>
+    
+    
     <button
-      on:click={() => {
+    on:click={() => {
         showMenu = true;
-      }}
-      aria-label="Open menu"
-      class="lg:hidden"
+    }}
+    aria-label="Open menu"
+    class="lg:hidden"
     >
-      <Icons type="menu" />
+    <Icons type="menu" />
     </button>
-  </div>
-  {#if showMenu}
+</div>
+{#if showMenu}
     <div
-      on:click|self={() => {
+    on:click|self={() => {
         showMenu = false;
-      }}
-      class="absolute inset-0 z-50 flex max-h-screen w-full justify-end overflow-hidden  lg:hidden"
+    }}
+    class="absolute inset-0 z-50 flex max-h-screen w-full justify-end overflow-hidden  lg:hidden"
     >
-      <div class="z-30 w-full p-6 md:w-1/2 lg:w-1/3">
+    <div class="z-30 w-full p-6 md:w-1/2 lg:w-1/3">
         <div class="flex w-full items-center justify-between">
-          <button
+        <button
             aria-label="Close menu"
             on:click={() => {
-              showMenu = false;
+            showMenu = false;
             }}
-          >
+        >
             <Icons strokeColor="#fff" type="close" />
-          </button>
-          <button on:click={openCart} class="relative mr-4">
+        </button>
+        <button on:click={openCart} class="relative mr-4">
             <Icons strokeColor="#fff" type="cart" />
             <div
-              class="absolute bottom-0 left-0 -ml-3 -mb-3 flex h-5 w-5 items-center justify-center rounded-full border border-black bg-white text-xs text-black"
+            class="absolute bottom-0 left-0 -ml-3 -mb-3 flex h-5 w-5 items-center justify-center rounded-full border border-black bg-white text-xs text-black"
             >
-              {$cartQuantity}
+            {$cartQuantity}
             </div>
-          </button>
+        </button>
         </div>
         <div class="mt-6 flex w-full flex-col">
-          {#each tabs as tab, i (tab.name)}
+        {#each tabs as tab, i (tab.name)}
             <div
-              class:active={currentRoute === tab.path}
-              on:click={() => {
+            class:active={currentRoute === tab.path}
+            on:click={() => {
                 showMenu = false;
-              }}
+            }}
             >
-              <a
+            <a
                 data-sveltekit-prefetch
                 href={tab.path}
                 class={`hover:opacity-100 px-2 py-1 text-black font-bold text-xl rounded-lg ${
-                  currentRoute === tab.path ? 'opacity-100' : 'opacity-75'
+                currentRoute === tab.path ? 'opacity-100' : 'opacity-75'
                 }`}>{tab.name}</a
-              >
+            >
             </div>
-          {/each}
+        {/each}
         </div>
-      </div>
     </div>
-  {/if}
+    </div>
+{/if}
 </nav>
+</div>
