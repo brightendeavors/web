@@ -5,8 +5,6 @@
   export let max_price = '';
   export let theme = '';
   export let href = '';
-
-  //src={imageSrc};
 </script>
 
 <div class="container align-middle">
